@@ -35,7 +35,7 @@ provider:
             - 'dynamodb:putItem'
             - 'dynamodb:getItem'
             - 'dynamodb:updateItem'
-            - 'dynamodb:scanItem'
+            - 'dynamodb:scan'
           Resource:
             - "arn:aws:dynamodb:ap-south-1:539816842501:table/Task"
     
