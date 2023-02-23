@@ -32,11 +32,13 @@ provider:
       statements:
         - Effect: Allow
           Action: 
-           - 'dynamodb:putItem'
-           - 'dynamodb:getItem'
-           - 'dynamodb:updateItem'
+            - 'dynamodb:putItem'
+            - 'dynamodb:getItem'
+            - 'dynamodb:updateItem'
+            - 'dynamodb:scanItem'
           Resource:
-           - Resource: "arn:aws:dynamodb:ap-south-1:539816842501:table/Task"
+            - "arn:aws:dynamodb:ap-south-1:539816842501:table/Task"
+    
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
 #    role:
@@ -168,12 +170,12 @@ resources:
         AttributeDefinitions:
           - AttributeName: ID
             AttributeType: S
-        KeySchemas:
+        KeySchema:
           - AttributeName: ID
             KeyType: HASH
-        ProvisionedThroughPut: 
-          - WritingCapacityUnits: 1
-          - ReadingCapacityUnits: 1
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
            
           
 
